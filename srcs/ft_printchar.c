@@ -1,21 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferreir <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 13:44:29 by dferreir          #+#    #+#             */
-/*   Updated: 2022/10/27 10:15:43 by dferreir         ###   ########.fr       */
+/*   Created: 2022/10/28 10:11:59 by dferreir          #+#    #+#             */
+/*   Updated: 2022/10/28 10:14:22 by dferreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_printchar(int c)
 {
-	if (!new)
-		return ;
-	if (!*lst)
-	{
+	write (1, &c, 1);
+	return (1);
 }

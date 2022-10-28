@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dferreir <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/25 14:09:59 by dferreir          #+#    #+#             */
-/*   Updated: 2022/10/28 11:06:09 by dferreir         ###   ########.fr       */
+/*   Created: 2022/10/28 11:31:26 by dferreir          #+#    #+#             */
+/*   Updated: 2022/10/28 11:33:12 by dferreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
 
-# include "../Libft/libft.h"
-# include <stdarg.h>
-
-int		ft_printf(const char *str, ...);
-
-int		ft_printchar(int c);
-
-int		ft_printnbr(int	n);
-
-int		ft_printunbr(unsigned int n);
-
-int		ft_printptr(unsigned long ptr);
-
-int		ft_printstr(char *str);
-
-#endif
+int		ft_printptr(unsigned long ptr)
+{
+	
+}

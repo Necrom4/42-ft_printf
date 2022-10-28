@@ -6,7 +6,7 @@
 #    By: dferreir <marvin@42lausanne.ch>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/25 14:08:02 by dferreir          #+#    #+#              #
-#    Updated: 2022/10/27 15:31:15 by dferreir         ###   ########.fr        #
+#    Updated: 2022/10/28 11:05:48 by dferreir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = libftprintf.a
 
 SRCS_DIR = srcs/
 
-SOURCES = ft_printf.c ft_printstr.c ft_printnbr.c #ft_printptr.c ft_printUnbr.c
+SOURCES = ft_printf.c ft_printchar.c ft_printnbr.c ft_printunbr.c ft_printstr.c #ft_printptr.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SOURCES))
 
