@@ -6,13 +6,13 @@
 /*   By: dferreir <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 14:19:03 by dferreir          #+#    #+#             */
-/*   Updated: 2022/10/28 11:06:39 by dferreir         ###   ########.fr       */
+/*   Updated: 2022/10/28 16:11:09 by dferreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	format(va_list args, const char f_kind)
+int	format(va_list args, char f_kind)
 {
 	int	len;
 
@@ -22,13 +22,13 @@ int	format(va_list args, const char f_kind)
 	else if (f_kind == 's')
 		len += ft_printstr(va_arg(args, char *));
 //	else if (f_kind == 'p')
-//		len += ft_print_ptr(va_arg(args, unsigned long));
+//		len += ft_printptr(va_arg(args, unsigned long));
 	else if (f_kind == 'd' || f_kind == 'i')
 		len += ft_printnbr(va_arg(args, int));
 	else if (f_kind == 'u')
 		len += ft_printunbr(va_arg(args, unsigned int));
-//	else if (f_kind == 'X' || f_kind == 'x')
-//		len += ft_print_hex(va_arg(args, unsigned int), f_kind);
+	else if (f_kind == 'X' || f_kind == 'x')
+		len += ft_printhex(va_arg(args, unsigned int), f_kind);
 	else if (f_kind == '%')
 	{
 		write (1, "%", 1);
