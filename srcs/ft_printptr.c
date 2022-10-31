@@ -6,14 +6,14 @@
 /*   By: dferreir <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 11:31:26 by dferreir          #+#    #+#             */
-/*   Updated: 2022/10/31 12:03:56 by dferreir         ###   ########.fr       */
+/*   Updated: 2022/10/31 14:55:00 by dferreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 #include "../Libft/libft.h"
 
-void	to_hex(uintptr_t nbr, unsigned int *len)
+void	to_hex(unsigned long long nbr, unsigned int *len)
 {
 	if (nbr >= 16)
 	{
