@@ -6,7 +6,7 @@
 /*   By: dferreir <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:36:46 by dferreir          #+#    #+#             */
-/*   Updated: 2022/10/28 16:34:40 by dferreir         ###   ########.fr       */
+/*   Updated: 2022/10/31 10:40:40 by dferreir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	dec_to_hex(unsigned int nbr, char type, unsigned int *len)
 	}
 	else
 	{
-		if (nbr < 10)
+		if (nbr <= 9)
 			*len += ft_printchar(nbr + '0');
 		else
 		{
