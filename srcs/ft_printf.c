@@ -12,23 +12,23 @@
 
 #include "../includes/ft_printf.h"
 
-int	format(va_list args, char f_kind)
+int	format(va_list *args, char f_kind)
 {
 	int	len;
 
 	len = 0;
 	if (f_kind == 'c')
-		len += ft_printchar(va_arg(args, int));
+		len += ft_printchar(va_arg(*args, int));
 	else if (f_kind == 's')
-		len += ft_printstr(va_arg(args, char *));
+		len += ft_printstr(va_arg(*args, char *));
 	else if (f_kind == 'p')
-		len += ft_printptr(va_arg(args, unsigned long long));
+		len += ft_printptr(va_arg(*args, unsigned long long));
 	else if (f_kind == 'd' || f_kind == 'i')
-		len += ft_printnbr(va_arg(args, int));
+		len += ft_printnbr(va_arg(*args, int));
 	else if (f_kind == 'u')
-		len += ft_printunbr(va_arg(args, unsigned int));
+		len += ft_printunbr(va_arg(*args, unsigned int));
 	else if (f_kind == 'X' || f_kind == 'x')
-		len += ft_printhex(va_arg(args, unsigned int), f_kind);
+		len += ft_printhex(va_arg(*args, unsigned int), f_kind);
 	else if (f_kind == '%')
 	{
 		write (1, "%", 1);
@@ -48,9 +48,9 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1])
 		{
-			len += format(args, str[i + 1]);
+			len += format(&args, str[i + 1]);
 			i++;
 		}
 		else
