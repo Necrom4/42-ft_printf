@@ -12,36 +12,24 @@
 
 #include "../includes/ft_printf.h"
 
-int	format(va_list *args, char f_kind)
+int	format(va_list *args, const char *str)
 {
-	int	len;
+	int				end;
+	struct s_flags	flags;
 
-	len = 0;
-	if (f_kind == 'c')
-		len += ft_printchar(va_arg(*args, int));
-	else if (f_kind == 's')
-		len += ft_printstr(va_arg(*args, char *));
-	else if (f_kind == 'p')
-		len += ft_printptr(va_arg(*args, unsigned long long));
-	else if (f_kind == 'd' || f_kind == 'i')
-		len += ft_printnbr(va_arg(*args, int));
-	else if (f_kind == 'u')
-		len += ft_printunbr(va_arg(*args, unsigned int));
-	else if (f_kind == 'X' || f_kind == 'x')
-		len += ft_printhex(va_arg(*args, unsigned int), f_kind);
-	else if (f_kind == '%')
-	{
-		write (1, "%", 1);
-		len++;
-	}
-	return (len);
+	end = first_specifier_pos(str);
+	if (end < 0)
+		return (0);
+	parse_flags(str, end, &flags);
+	return (handle_conversion(args, str[end], flags));
 }
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
 	va_list	args;
+	int		i;
 	int		len;
+	int		consumed;
 
 	i = 0;
 	len = 0;
@@ -50,14 +38,15 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%' && str[i + 1])
 		{
-			len += format(&args, str[i + 1]);
-			i++;
+			consumed = first_specifier_pos(&str[i + 1]);
+			if (consumed >= 0)
+			{
+				len += format(&args, &str[i + 1]);
+				i += consumed + 1;
+			}
 		}
 		else
-		{
-			write (1, &str[i], 1);
-			len++;
-		}
+			len += write(1, &str[i], 1);
 		i++;
 	}
 	va_end(args);

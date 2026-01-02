@@ -20,7 +20,7 @@ NAME = libftprintf.a
 
 SRCS_DIR = srcs/
 
-SOURCES = ft_printf.c ft_printchar.c ft_printhex.c ft_printnbr.c ft_printunbr.c ft_printstr.c ft_printptr.c
+SOURCES = ft_printf.c ft_printchar.c ft_printhex.c ft_printnbr.c ft_printunbr.c ft_printstr.c ft_printptr.c ft_printf_utils.c
 
 SRCS = $(addprefix $(SRCS_DIR), $(SOURCES))
 
@@ -29,6 +29,8 @@ OBJS = $(SRCS:.c=.o)
 INCLUDE = includes
 
 all: $(NAME)
+
+bonus: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C Libft
@@ -47,4 +49,4 @@ fclean: clean
 
 re:	fclean $(NAME)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

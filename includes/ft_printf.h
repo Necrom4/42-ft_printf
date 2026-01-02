@@ -16,6 +16,13 @@
 # include "../Libft/libft.h"
 # include <stdarg.h>
 
+struct s_flags
+{
+	int	hash;
+	int	plus;
+	int	space;
+};
+
 int		ft_printf(const char *str, ...);
 
 int		ft_printchar(int c);
@@ -29,5 +36,15 @@ int		ft_printunbr(unsigned int n);
 int		ft_printptr(unsigned long long ptr);
 
 int		ft_printstr(char *str);
+
+// utils.c
+
+int		first_specifier_pos(const char *str);
+
+int		handle_conversion(va_list *args, char k, struct s_flags f);
+
+void	parse_flags(const char *str, int end, struct s_flags *f);
+
+// ---
 
 #endif
