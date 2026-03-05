@@ -33,12 +33,11 @@ int	ft_printptr(unsigned long long ptr)
 {
 	unsigned int	len;
 
+	if (!ptr)
+		return (write(1, "(nil)", 5));
 	len = 2;
 	write (1, "0x", 2);
-	if (!ptr)
-		len += write (1, "0", 1);
-	else
-		to_hex(ptr, &len);
+	to_hex(ptr, &len);
 	return (len);
 }
 
